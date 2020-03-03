@@ -30,7 +30,7 @@ class AppNavbar extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:9000/api/categories")
+    fetch("api/categories")
       .then(response => response.json())
       .then(response => {
         this.setState({
@@ -60,7 +60,6 @@ class AppNavbar extends Component {
     window.location = "/collections";
   };
   render() {
-    const category = ["apple", "pinepile"];
     return (
       <Navbar color="light" light expand="lg" className="mb-1 text-capitialize">
         <NavbarBrand className="mr-4" href="/">

@@ -5,7 +5,7 @@ const CategoryProducts = ({ match }) => {
   const categoryName = match.params.category;
   const [categoryProducts, setCategoryProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:9000/api/succulents/${categoryName}`)
+    fetch(`api/succulents/${categoryName}`)
       .then(response => response.json())
       .then(response => setCategoryProducts(response))
       .catch(err => console.log("error when fetch succulents:" + err));

@@ -11,7 +11,7 @@ const AllProducts = () => {
   // const indexOfFirst = indexOfLast - productsPerPage;
   // const currentProducts = totalProducts.slice(indexOfFirst, indexOfLast);
   useEffect(() => {
-    fetch("http://localhost:9000/api/succulents/")
+    fetch("api/succulents/")
       .then(response => response.json())
       .then(response => {
         setProducts(response);
