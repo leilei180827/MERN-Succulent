@@ -6,7 +6,7 @@ const MainPage = props => {
   const [lateProducts, setLatestProducts] = useState([]);
   const [echeveriaProducts, setEcheveriaProducts] = useState([]);
   const port = process.env.PORT || 9000;
-
+  console.log("mainpage:" + port);
   useEffect(() => {
     fetch(`http://localhost:${port}/api/succulents/new`)
       .then(response => response.json())

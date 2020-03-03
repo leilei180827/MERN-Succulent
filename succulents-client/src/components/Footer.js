@@ -32,7 +32,7 @@ function Footer() {
           <div className="col-10 col-lg-2">
             <img
               className="img-fluid"
-              src={process.env.PUBLIC_URL + "/images/logo-small.png"}
+              src={process.env.PUBLIC_URL + "/images/logo-small1.png"}
               alt="React Bootstrap logo"
             />
           </div>
