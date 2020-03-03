@@ -7,13 +7,13 @@ const MainPage = props => {
   const [echeveriaProducts, setEcheveriaProducts] = useState([]);
   const port = process.env.PORT || 9000;
   useEffect(() => {
-    fetch(`http://localhost/api/succulents/new`)
+    fetch("api/succulents/new")
       .then(response => response.json())
       .then(response => {
         setLatestProducts(response);
       })
       .catch(err => console.log("error when fetch succulents:" + err));
-    fetch("http://localhost:9000/api/succulents/echeveria")
+    fetch("api/succulents/echeveria")
       .then(response => response.json())
       .then(response => {
         setEcheveriaProducts(response);
