@@ -1,0 +1,59 @@
+:root {
+  --mainBlue: #2a2a72;
+  --lightBlue: #009ffd;
+  --mainWhite: #f3f3f3;
+  --mainDark: #232528;
+  --mainDark: #000;
+  --mainYellow: #ffa400;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #fff6f6;
+  color: black;
+}
+a {
+  text-decoration: none !important;
+}
+.navbar .navbar-nav .nav-link {
+  color: rgba(0, 0, 0, 0.8);
+  transition: all 0.5s ease-in-out;
+}
+hr {
+  border: 1px solid black;
+  width: 75%;
+}
+.nav-item:hover {
+  cursor: pointer;
+}
+.nav-item:hover > .nav-link {
+  color: #ffb400 !important;
+}
+
+.dropdown-item:hover {
+  text-decoration: none;
+  text-transform: capitalize;
+  background-color: #ffb400;
+  cursor: pointer;
+}
+.footer {
+  background-color: #ebe6e6;
+  color: #acc6aa;
+  position: relative;
+}
+.footer hr {
+  border: 1px solid #acc6aa;
+  width: 95%;
+  transition: all linear 0.5s;
+  transform: translate(15px);
+}
+#sticky-footer {
+  flex-shrink: none;
+  background-color: #758184 !important;
+}
+/* #ffb400
+#fffbe0
+#2994b2
+#474744 https://www.colorpk.com/*/
