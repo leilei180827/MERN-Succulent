@@ -5,9 +5,10 @@ import ProductList from "./ProductList";
 const MainPage = props => {
   const [lateProducts, setLatestProducts] = useState([]);
   const [echeveriaProducts, setEcheveriaProducts] = useState([]);
+  const port = process.env.PORT || 9000;
 
   useEffect(() => {
-    fetch("http://localhost:9000/api/succulents/new")
+    fetch(`http://localhost:${port}/api/succulents/new`)
       .then(response => response.json())
       .then(response => {
         setLatestProducts(response);
