@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -21,5 +22,13 @@ mongoose
 app.use("/api/succulents", allSucculentsRouter);
 app.use("/api/categories", categoriesRouter);
 app.use("/api/add", addRouter);
+if ((process.env.NODE_ENV = "production")) {
+  app.use(express.static("succulents-client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, "succulents-client", "build", "index.html")
+    );
+  });
+}
 const port = process.env.PORT || 9000;
 app.listen(port, console.log(`server started on port ${port}`));

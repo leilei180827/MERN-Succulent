@@ -9,7 +9,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix succulents-client",
-    "dev": "concurrently \"npm run server\" \"npm run client-install\" \"npm run client\""
+    "dev": "concurrently \"npm run server\"  \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix succulents-client && npm run build --prefix succulents-client"
   },
   "author": "Leilei",
   "license": "ISC",
