@@ -10,6 +10,7 @@ import CategoryProducts from "./components/CategoryProducts";
 import AllProducts from "./components/AllProducts";
 import Footer from "./components/Footer";
 import Cart from "./components/Cart";
+import SearchProducts from "./components/SearchProducts";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -27,6 +28,7 @@ function App() {
             <Route path="/collections/:category" component={CategoryProducts} />
             <Route path="/collections" component={AllProducts} />
             <Route path="/cart" component={Cart} />
+            <Route path="/search" component={SearchProducts} />
             <Route path="/" exact component={MainPage} />
           </Switch>
           <Footer />

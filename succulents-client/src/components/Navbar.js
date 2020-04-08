@@ -17,7 +17,7 @@ import {
   Button
 } from "reactstrap";
 import styled from "styled-components";
-import { Link, Redirect } from "react-router-dom";
+import SearchModal from "./SearchModal";
 
 class AppNavbar extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class AppNavbar extends Component {
   }
 
   componentDidMount() {
-    fetch("api/categories")
+    fetch("/api/categories")
       .then(response => response.json())
       .then(response => {
         this.setState({
@@ -119,9 +119,8 @@ class AppNavbar extends Component {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/">
-                <i className="fa fa-search" style={{ fontSize: "1.3rem" }}></i>
-              </NavLink>
+              <SearchModal classNameCss={"nav-link"} />
+              {/* <i className="fa fa-search" style={{ fontSize: "1.3rem" }}></i> */}
             </NavItem>
           </Nav>
         </Collapse>

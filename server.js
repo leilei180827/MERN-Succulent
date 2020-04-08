@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 const allSucculentsRouter = require("./routes/api/succulents");
 const categoriesRouter = require("./routes/api/categories");
 const addRouter = require("./routes/api/add");
+const searchRouter = require("./routes/api/search");
 const mongoDB_URL =
   "mongodb+srv://iciness_succulents:iciness_succulents@cluster0-9oxau.mongodb.net/test?retryWrites=true&w=majority";
 // process.env.MONGODB_URL;
@@ -22,7 +23,8 @@ mongoose
 app.use("/api/succulents", allSucculentsRouter);
 app.use("/api/categories", categoriesRouter);
 app.use("/api/add", addRouter);
-if ((process.env.NODE_ENV = "production")) {
+app.use("/api/search", searchRouter);
+if (process.env.NODE_ENV == "production") {
   app.use(express.static("succulents-client/build"));
   app.get("*", (req, res) => {
     res.sendFile(
