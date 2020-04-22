@@ -10,14 +10,14 @@ import queryString from "query-string";
 
 // fetch(url)
 
-const SearchProducts = props => {
+const SearchProducts = (props) => {
   const keyword = queryString.parse(props.location.search).q;
   const [searchResults, setSearchResults] = useState([]);
   useEffect(() => {
     fetch(`api/search?keyword=${keyword}`)
-      .then(response => response.json())
-      .then(response => setSearchResults(response))
-      .catch(err => console.log("error when fetch succulents:" + err));
+      .then((response) => response.json())
+      .then((response) => setSearchResults(response))
+      .catch((err) => console.log("error when fetch succulents:" + err));
   }, []);
   if (searchResults.length == 0) {
     return (

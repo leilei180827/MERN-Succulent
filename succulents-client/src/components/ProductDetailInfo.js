@@ -69,7 +69,7 @@ class ProductInfo extends Component {
     );
   }
 }
-const mapStateToprops = state => ({
+const mapStateToProps = state => ({
   cart: state.cart
 });
-export default connect(mapStateToprops, { add_to_cart })(ProductInfo);
+export default connect(mapStateToProps, { add_to_cart })(ProductInfo);

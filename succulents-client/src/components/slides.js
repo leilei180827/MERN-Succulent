@@ -4,29 +4,29 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption
+  CarouselCaption,
 } from "reactstrap";
 import "../css/slides.css";
 
 const items = [
   {
     src: "images/slideshow.jpg",
-    altText: "something",
-    caption: "something 1"
+    altText: "rare plants",
+    caption: "enjoy rarely marginate succulents here",
   },
   {
     src: "images/slideshow.jpg",
-    altText: "something 2",
-    caption: "something 2"
+    altText: "various plants",
+    caption: "meet every gardener's collection hobby",
   },
   {
     src: "images/slideshow.jpg",
-    altText: "something 3",
-    caption: "something 3"
-  }
+    altText: "healthy plants",
+    caption: "definitely naturally grown without any pesticide",
+  },
 ];
 
-const AppCarousel = props => {
+const AppCarousel = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -42,7 +42,7 @@ const AppCarousel = props => {
     setActiveIndex(nextIndex);
   };
 
-  const goToIndex = newIndex => {
+  const goToIndex = (newIndex) => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
@@ -56,8 +56,9 @@ const AppCarousel = props => {
       >
         <img src={item.src} alt={item.altText} width="100%" height="500" />
         <CarouselCaption
+          className="text-capitalize"
           captionText={item.caption}
-          captionHeader={item.caption}
+          captionHeader={item.altText}
         />
       </CarouselItem>
     );

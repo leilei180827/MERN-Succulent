@@ -10,9 +10,11 @@
 body {
   margin: 0;
   padding: 0;
-  list-style: none;
   background-color: #fff6f6;
   color: black;
+}
+ul {
+  list-style: none;
 }
 a {
   text-decoration: none !important;
@@ -25,13 +27,10 @@ hr {
   border: 1px solid black;
   width: 75%;
 }
-.nav-item:hover {
+.nav-link:hover {
   cursor: pointer;
-}
-.nav-item:hover > .nav-link {
   color: #ffb400 !important;
 }
-
 .dropdown-item:hover {
   text-decoration: none;
   text-transform: capitalize;
@@ -52,6 +51,83 @@ hr {
 #sticky-footer {
   flex-shrink: none;
   background-color: #758184 !important;
+}
+.register-submit-button,
+.login-submit-button {
+  text-transform: capitalize;
+  background: transparent;
+  border: 0.05rem solid var(--mainYellow);
+  color: var(--mainYellow);
+  padding: 0.2rem 0.5rem;
+  outline-color: red;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+}
+.register-submit-button:hover,
+.login-submit-button:hover {
+  background: var(--mainYellow);
+  color: var(--mainBlue);
+}
+.register,
+.register-header,
+.login,
+.login-header {
+  color: var(--mainYellow);
+}
+.register-hr,
+.login-hr {
+  border: 0.5px solid var(--mainYellow);
+  width: 100%;
+}
+/* set height and width of two columns https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex */
+/* .col-container {
+  display: flex;
+  width: 100%;
+}
+.col {
+  flex: auto;
+  padding: 16px;
+} */
+
+.dashboardSidebarNav ul {
+  padding: 0;
+  margin: 0;
+  background: #ffe773;
+  text-transform: capitalize;
+}
+.dashboardSidebarNav ul li {
+  text-align: center;
+  font-size: medium;
+  padding: 5px;
+  display: block;
+  cursor: pointer;
+}
+.dashboardSidebarNav ul li:hover {
+  background: var(--lightBlue);
+  color: var(--mainBlue);
+}
+.navbar-photo {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+.navbar-photo img {
+  width: 100%;
+}
+.dashboard-header {
+  background-color: rgb(204, 231, 141);
+}
+.dashboard-panel {
+  background-color: rgb(204, 231, 141);
+}
+.dashboard-order {
+  margin: 5px;
+  padding: 5px;
+  background-color: var(--mainYellow);
 }
 /* #ffb400
 #fffbe0

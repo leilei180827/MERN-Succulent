@@ -9,16 +9,16 @@ const AllProducts = () => {
 
   // const indexOfLast = currentPage * productsPerPage;
   // const indexOfFirst = indexOfLast - productsPerPage;
-  // const currentProducts = totalProducts.slice(indexOfFirst, indexOfLast);
+  // const currentProducts = products.slice(indexOfFirst, indexOfLast);
   useEffect(() => {
     fetch("api/succulents/")
-      .then(response => response.json())
-      .then(response => {
+      .then((response) => response.json())
+      .then((response) => {
         setProducts(response);
       })
-      .catch(err => console.log("error when fetch succulents:" + err));
+      .catch((err) => console.log("error when fetch succulents:" + err));
   }, []);
-  const paginate = pageNumber => {
+  const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
   return (
@@ -33,7 +33,7 @@ const AllProducts = () => {
         />
       ))}
       {/* <Pagination
-        total={totalProducts.length}
+        total={products.length}
         productsPerPage={productsPerPage}
         currentPage={currentPage}
         paginate={paginate}

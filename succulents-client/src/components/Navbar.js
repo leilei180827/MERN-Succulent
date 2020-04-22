@@ -14,10 +14,12 @@ import {
   DropdownMenu,
   DropdownItem,
   Badge,
-  Button
+  Button,
 } from "reactstrap";
 import styled from "styled-components";
 import SearchModal from "./SearchModal";
+import { connect } from "react-redux";
+import { login, register, logout } from "../actions/userActions";
 
 class AppNavbar extends Component {
   constructor(props) {
@@ -25,43 +27,48 @@ class AppNavbar extends Component {
     this.state = {
       isOpen: false,
       isDropDownOpen: false,
-      category: []
+      category: [],
     };
   }
 
   componentDidMount() {
     fetch("/api/categories")
-      .then(response => response.json())
-      .then(response => {
+      .then((response) => response.json())
+      .then((response) => {
         this.setState({
-          category: response
+          category: response,
         });
       })
-      .catch(err => console.log("error:" + err));
+      .catch((err) => console.log("error:" + err));
   }
 
   toggle = () => {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   };
   onMouseEnter_DropDown = () => {
     this.setState({
-      isDropDownOpen: true
+      isDropDownOpen: true,
     });
   };
   onMouseLeave_DropDown = () => {
     this.setState({
-      isDropDownOpen: false
+      isDropDownOpen: false,
     });
   };
   dropdownToggle = () => {
-    console.log("dropdowntoggle");
     window.location = "/collections";
+  };
+  onLogout = () => {
+    console.log("logout function is called");
+  };
+  onVisitProfile = () => {
+    console.log("visit profile is called");
   };
   render() {
     return (
-      <Navbar color="light" light expand="lg" className="mb-1 text-capitialize">
+      <Navbar color="light" light expand="lg" className="mb-1 text-capitalize">
         <NavbarBrand className="mr-4" href="/">
           <ImgNavbar
             src={process.env.PUBLIC_URL + "/images/logo-small1.png"}
@@ -83,7 +90,7 @@ class AppNavbar extends Component {
               {/* {this.state.category.length > 0 && ( */}
               <DropdownMenu
                 style={{
-                  border: "none"
+                  border: "none",
                 }}
               >
                 {this.state.category.map((item, index) => (
@@ -122,6 +129,42 @@ class AppNavbar extends Component {
               <SearchModal classNameCss={"nav-link"} />
               {/* <i className="fa fa-search" style={{ fontSize: "1.3rem" }}></i> */}
             </NavItem>
+            {!this.props.user.isLoggedIn ? (
+              <React.Fragment>
+                <NavItem>
+                  <NavLink
+                    style={{ display: "inline-block", paddingRight: "4px" }}
+                    href="/login"
+                  >
+                    Login
+                  </NavLink>
+                  <span>|</span>
+                  <NavLink
+                    style={{ display: "inline-block", paddingLeft: "4px" }}
+                    href="/register"
+                  >
+                    Register
+                  </NavLink>
+                </NavItem>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <NavItem className="navbar-dashboard-navItem">
+                  <NavLink
+                    className="navbar-dashboard-navLink"
+                    href="/dashboard"
+                  >
+                    <div className="navbar-photo">
+                      <img
+                        src={process.env.PUBLIC_URL + "/images/user/male.png"}
+                        alt="Profile Photo"
+                      />
+                    </div>
+                    {/* {this.props.user.username.substr(0, 10)} */}
+                  </NavLink>
+                </NavItem>
+              </React.Fragment>
+            )}
           </Nav>
         </Collapse>
       </Navbar>
@@ -139,4 +182,7 @@ const SpanStyled = styled.span`
     background-color: red;
   }
 `;
-export default AppNavbar;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+export default connect(mapStateToProps, {})(AppNavbar);
